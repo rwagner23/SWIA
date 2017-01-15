@@ -1,0 +1,28 @@
+<fieldset class="form">
+  <div class="fieldcontain">
+    <label for="eventDeck">Event Deck</label>
+    <select name="eventDeck" id="eventDeck" ng-model="vm.campaign.eventDeck" ng-options="deck for deck in vm.deckList track by deck.id"></select>
+  </div>
+  <div class="fieldcontain required">
+    <label for="rebelAid">Rebel Aid
+      <span class="required-indicator">*</span>
+    </label>
+    <select required="" name="rebelAid" id="rebelAid" ng-model="vm.campaign.rebelAid" ng-options="deck for deck in vm.deckList track by deck.id"></select>
+  </div>
+  <div class="fieldcontain">
+    <label for="characters">Characters</label>
+    <a ui-sref="character.create({campaignId: vm.campaign.id})">Add Character</a>
+  </div>
+  <div class="fieldcontain required">
+    <label for="name">Name
+      <span class="required-indicator">*</span>
+    </label>
+    <input required="" name="name" id="name" ng-model="vm.campaign.name" type="text" />
+  </div>
+  <div class="fieldcontain required">
+    <label for="imperialDeck">Imperial Deck
+      <span class="required-indicator">*</span>
+    </label>
+    <select required="" name="imperialDeck" id="imperialDeck" ng-model="vm.campaign.imperialDeck" ng-options="deck for deck in vm.deckList track by deck.id"></select>
+  </div>
+</fieldset>

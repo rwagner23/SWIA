@@ -1,0 +1,15 @@
+import raiv.*
+import org.apache.commons.io.FilenameUtils;
+import grails.converters.XML
+
+XML.use('deep'){
+Campaign.list().each{
+		def output =  it as XML;
+  output.render(new java.io.FileWriter("C:/Workspace/RAIV/scripts/campaign/${it.name} - ${new Date().time}.xml"));
+ }
+}
+	
+
+
+
+"done"

@@ -1,0 +1,50 @@
+<div class="nav" role="navigation">
+    <ul>
+        <li><a ui-sref="index" class="home">Home</a></li>
+        <li><a class="list" ui-sref="character.list" class="list">Character List</a></li>
+        <li><a class="create" ui-sref="character.create" class="create">New Character</a></li>
+    </ul>
+</div>
+<div id="show-part" class="content scaffold-show" role="main">
+    <h1>Show Character</h1>
+    <ol class="property-list character">
+  <li class="fieldcontain">
+    <span id="name-label" class="property-label">Name</span>
+    <div class="property-value" aria-labelledby="name-label">
+      <span>{{vm.character.name}}</span>
+    </div>
+  </li>
+  <li class="fieldcontain">
+    <span id="campaign-label" class="property-label">Campaign</span>
+    <div class="property-value" aria-labelledby="campaign-label">
+      <a ui-sref="campaign.show({id: vm.character.campaign.id})">{{vm.character.campaign.toString()}}</a>
+    </div>
+  </li>
+  <li class="fieldcontain">
+    <span id="equipment-label" class="property-label">Equipment</span>
+    <div class="property-value" aria-labelledby="equipment-label">
+      <ul>
+        <li ng-repeat="equipment in vm.character.equipment">
+          <a ui-sref="equipment.show({id: equipment.id})">{{equipment.toString()}}</a>
+        </li>
+      </ul>
+    </div>
+  </li>
+  <li class="fieldcontain">
+    <span id="items-label" class="property-label">Items</span>
+    <div class="property-value" aria-labelledby="items-label">
+      <ul>
+        <li ng-repeat="item in vm.character.items">
+          <a ui-sref="item.show({id: item.id})">{{item.toString()}}</a>
+        </li>
+      </ul>
+    </div>
+  </li>
+</ol>
+    <form ng-submit="vm.delete()">
+        <fieldset class="buttons">
+            <a class="edit" ui-sref="character.edit({id: vm.character.id})">Edit</a>
+            <input class="delete" type="submit" value="Delete" onclick="return confirm('Are you sure?');" />
+        </fieldset>
+    </form>
+</div>

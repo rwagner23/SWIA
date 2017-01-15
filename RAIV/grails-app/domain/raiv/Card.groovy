@@ -1,0 +1,10 @@
+package raiv
+
+
+import grails.rest.*
+
+@Resource(uri='/cards', readOnly = false, formats = ['json', 'xml'])
+class Card {
+	String name
+	static belongsTo = [owner:Owner]
+}

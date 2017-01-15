@@ -1,0 +1,12 @@
+<fieldset class="form">
+  <div class="fieldcontain">
+    <label for="cards">Cards</label>
+    <select name="cards" id="cards" ng-model="vm.deck.cards" ng-options="card for card in vm.cardList track by card.id" multiple=""></select>
+  </div>
+  <div class="fieldcontain required">
+    <label for="name">Name
+      <span class="required-indicator">*</span>
+    </label>
+    <input required="" name="name" id="name" ng-model="vm.deck.name" type="text" />
+  </div>
+</fieldset>

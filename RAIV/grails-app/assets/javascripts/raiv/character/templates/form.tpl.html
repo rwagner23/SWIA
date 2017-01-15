@@ -1,0 +1,22 @@
+<fieldset class="form">
+  <div class="fieldcontain required">
+    <label for="name">Name
+      <span class="required-indicator">*</span>
+    </label>
+    <input required="" name="name" id="name" ng-model="vm.character.name" type="text" />
+  </div>
+  <div class="fieldcontain required">
+    <label for="campaign">Campaign
+      <span class="required-indicator">*</span>
+    </label>
+    <select required="" name="campaign" id="campaign" ng-model="vm.character.campaign" ng-options="campaign for campaign in vm.campaignList track by campaign.id"></select>
+  </div>
+  <div class="fieldcontain">
+    <label for="equipment">Equipment</label>
+    <select name="equipment" id="equipment" ng-model="vm.character.equipment" ng-options="equipment for equipment in vm.equipmentList track by equipment.id" multiple=""></select>
+  </div>
+  <div class="fieldcontain">
+    <label for="items">Items</label>
+    <select name="items" id="items" ng-model="vm.character.items" ng-options="item for item in vm.itemList track by item.id" multiple=""></select>
+  </div>
+</fieldset>

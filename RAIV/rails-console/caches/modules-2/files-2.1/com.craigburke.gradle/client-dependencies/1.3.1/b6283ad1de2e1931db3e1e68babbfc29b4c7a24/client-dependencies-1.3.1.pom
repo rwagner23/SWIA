@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.craigburke.gradle</groupId>
+  <artifactId>client-dependencies</artifactId>
+  <version>1.3.1</version>
+  <dependencies>
+    <dependency>
+      <groupId>org.codehaus.gpars</groupId>
+      <artifactId>gpars</artifactId>
+      <version>1.2.1</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.ajoberstar</groupId>
+      <artifactId>grgit</artifactId>
+      <version>1.5.0</version>
+      <scope>runtime</scope>
+    </dependency>
+  </dependencies>
+  <name>client-dependencies</name>
+  <description>null</description>
+  <url>https://github.com/craigburke/client-dependencies-gradle</url>
+  <scm>
+    <url>https://github.com/craigburke/client-dependencies-gradle</url>
+    <connection>scm:https://github.com/craigburke/client-dependencies-gradle.git</connection>
+    <developerConnection>scm:https://github.com/craigburke/client-dependencies-gradle.git</developerConnection>
+  </scm>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/license/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>craigburke</id>
+      <name>Craig Burke</name>
+      <email>craig@craigburke.com</email>
+    </developer>
+  </developers>
+</project>

@@ -1,0 +1,50 @@
+<div class="nav" role="navigation">
+    <ul>
+        <li><a ui-sref="index" class="home">Home</a></li>
+        <li><a ui-sref="campaign.create" class="create">New Campaign</a></li>
+    </ul>
+</div>
+<div id="list-campaign" class="content scaffold-list" role="main">
+    <h1>Campaign List</h1>
+    <table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Event Deck</th>
+      <th>Rebel Aid</th>
+      <th>Characters</th>
+      <th>Name</th>
+      <th>Imperial Deck</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-class="{'even': $index%2 == 0, 'odd': $index%2 == 1}" ng-repeat="campaign in vm.campaignList">
+      <td>
+        <a ui-sref="campaign.show({id: campaign.id})">{{campaign.id}}</a>
+      </td>
+      <td>
+        <a ui-sref="deck.show({id: campaign.eventDeck.id})">{{campaign.eventDeck.toString()}}</a>
+      </td>
+      <td>
+        <a ui-sref="deck.show({id: campaign.rebelAid.id})">{{campaign.rebelAid.toString()}}</a>
+      </td>
+      <td>
+        <ul>
+          <li ng-repeat="character in campaign.characters">
+            <a ui-sref="character.show({id: character.id})">{{character.toString()}}</a>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <span>{{campaign.name}}</span>
+      </td>
+      <td>
+        <a ui-sref="deck.show({id: campaign.imperialDeck.id})">{{campaign.imperialDeck.toString()}}</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    <!--    <div class="pagination">
+            <g:paginate total="${partCount ?: 0}" />
+        </div>-->
+</div>

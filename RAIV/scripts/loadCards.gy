@@ -1,0 +1,20 @@
+import raiv.*
+import org.apache.commons.io.FilenameUtils;
+
+new File("C:/Workspace/RAIV/grails-app/assets/images/cards").eachDir{dir ->
+ 
+ def owner = Owner.findByName(dir.name) ?: new Owner(name:dir.name).save()
+ dir.eachFileRecurse{image -> 
+   def fileName = FilenameUtils.removeExtension(image.name)
+  if(fileName == "Priority Shift"){println image.getAbsolutePath() }
+  
+ 		def card = Card.findByName(fileName) ?: new Card(name:fileName,owner:owner).save()
+ }
+}
+
+
+
+ 
+
+
+"done"

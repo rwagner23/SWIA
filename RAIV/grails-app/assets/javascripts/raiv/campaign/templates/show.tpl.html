@@ -1,0 +1,52 @@
+<div class="nav" role="navigation">
+    <ul>
+        <li><a ui-sref="index" class="home">Home</a></li>
+        <li><a class="list" ui-sref="campaign.list" class="list">Campaign List</a></li>
+        <li><a class="create" ui-sref="campaign.create" class="create">New Campaign</a></li>
+    </ul>
+</div>
+<div id="show-part" class="content scaffold-show" role="main">
+    <h1>Show Campaign</h1>
+    <ol class="property-list campaign">
+  <li class="fieldcontain">
+    <span id="eventDeck-label" class="property-label">Event Deck</span>
+    <div class="property-value" aria-labelledby="eventDeck-label">
+      <a ui-sref="deck.show({id: vm.campaign.eventDeck.id})">{{vm.campaign.eventDeck.toString()}}</a>
+    </div>
+  </li>
+  <li class="fieldcontain">
+    <span id="rebelAid-label" class="property-label">Rebel Aid</span>
+    <div class="property-value" aria-labelledby="rebelAid-label">
+      <a ui-sref="deck.show({id: vm.campaign.rebelAid.id})">{{vm.campaign.rebelAid.toString()}}</a>
+    </div>
+  </li>
+  <li class="fieldcontain">
+    <span id="characters-label" class="property-label">Characters</span>
+    <div class="property-value" aria-labelledby="characters-label">
+      <ul>
+        <li ng-repeat="character in vm.campaign.characters">
+          <a ui-sref="character.show({id: character.id})">{{character.toString()}}</a>
+        </li>
+      </ul>
+    </div>
+  </li>
+  <li class="fieldcontain">
+    <span id="name-label" class="property-label">Name</span>
+    <div class="property-value" aria-labelledby="name-label">
+      <span>{{vm.campaign.name}}</span>
+    </div>
+  </li>
+  <li class="fieldcontain">
+    <span id="imperialDeck-label" class="property-label">Imperial Deck</span>
+    <div class="property-value" aria-labelledby="imperialDeck-label">
+      <a ui-sref="deck.show({id: vm.campaign.imperialDeck.id})">{{vm.campaign.imperialDeck.toString()}}</a>
+    </div>
+  </li>
+</ol>
+    <form ng-submit="vm.delete()">
+        <fieldset class="buttons">
+            <a class="edit" ui-sref="campaign.edit({id: vm.campaign.id})">Edit</a>
+            <input class="delete" type="submit" value="Delete" onclick="return confirm('Are you sure?');" />
+        </fieldset>
+    </form>
+</div>

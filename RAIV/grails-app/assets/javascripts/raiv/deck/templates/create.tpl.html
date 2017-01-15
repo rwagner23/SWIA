@@ -1,0 +1,21 @@
+<div class="nav" role="navigation">
+    <ul>
+        <li><a ui-sref="index" class="home">Home</a></li>
+        <li><a ui-sref="deck.list" class="list">Deck List</a></li>
+    </ul>
+</div>
+<div id="create-deck" class="content scaffold-create" role="main">
+    <h1>Create Deck</h1>
+    <ul class="errors" role="alert" ng-if="vm.errors">
+        <li ng-repeat="error in vm.errors">{{error.message}}</li>
+    </ul>
+
+    <form name="saveDeck" ng-submit="vm.saveDeck()">
+        <fieldset class="form">
+            <ng-include src="'/raiv/deck/form.html'"></ng-include>
+        </fieldset>
+        <fieldset class="buttons">
+            <input type="submit" name="create" class="save" value="Create" />
+        </fieldset>
+    </form>
+</div>

@@ -1,0 +1,34 @@
+<div class="nav" role="navigation">
+    <ul>
+        <li><a ui-sref="index" class="home">Home</a></li>
+        <li><a class="list" ui-sref="deck.list" class="list">Deck List</a></li>
+        <li><a class="create" ui-sref="deck.create" class="create">New Deck</a></li>
+    </ul>
+</div>
+<div id="show-part" class="content scaffold-show" role="main">
+    <h1>Show Deck</h1>
+    <ol class="property-list deck">
+  <li class="fieldcontain">
+    <span id="cards-label" class="property-label">Cards</span>
+    <div class="property-value" aria-labelledby="cards-label">
+      <ul>
+        <li ng-repeat="card in vm.deck.cards">
+          <a ui-sref="card.show({id: card.id})">{{card.toString()}}</a>
+        </li>
+      </ul>
+    </div>
+  </li>
+  <li class="fieldcontain">
+    <span id="name-label" class="property-label">Name</span>
+    <div class="property-value" aria-labelledby="name-label">
+      <span>{{vm.deck.name}}</span>
+    </div>
+  </li>
+</ol>
+    <form ng-submit="vm.delete()">
+        <fieldset class="buttons">
+            <a class="edit" ui-sref="deck.edit({id: vm.deck.id})">Edit</a>
+            <input class="delete" type="submit" value="Delete" onclick="return confirm('Are you sure?');" />
+        </fieldset>
+    </form>
+</div>

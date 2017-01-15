@@ -1,0 +1,50 @@
+<div class="nav" role="navigation">
+    <ul>
+        <li><a ui-sref="index" class="home">Home</a></li>
+        <li><a ui-sref="character.create" class="create">New Character</a></li>
+    </ul>
+</div>
+<div id="list-character" class="content scaffold-list" role="main">
+    <h1>Character List</h1>
+    <table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Campaign</th>
+      <th>Equipment</th>
+      <th>Items</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-class="{'even': $index%2 == 0, 'odd': $index%2 == 1}" ng-repeat="character in vm.characterList">
+      <td>
+        <a ui-sref="character.show({id: character.id})">{{character.id}}</a>
+      </td>
+      <td>
+        <span>{{character.name}}</span>
+      </td>
+      <td>
+        <a ui-sref="campaign.show({id: character.campaign.id})">{{character.campaign.toString()}}</a>
+      </td>
+      <td>
+        <ul>
+          <li ng-repeat="equipment in character.equipment">
+            <a ui-sref="equipment.show({id: equipment.id})">{{equipment.toString()}}</a>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li ng-repeat="item in character.items">
+            <a ui-sref="item.show({id: item.id})">{{item.toString()}}</a>
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    <!--    <div class="pagination">
+            <g:paginate total="${partCount ?: 0}" />
+        </div>-->
+</div>

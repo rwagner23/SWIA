@@ -1,0 +1,61 @@
+import raiv.*
+import org.apache.commons.io.FilenameUtils;
+
+new File("C:/Workspace/RAIV/grails-app/assets/images/cards").eachDir{dir ->
+ 
+ def owner = Owner.findByName(dir.name) ?: new Owner(name:dir.name).save()
+ dir.eachFileRecurse{image -> 
+   def fileName = FilenameUtils.removeExtension(image.name)
+ 		def card = Card.findByName(fileName) ?: new Card(name:fileName,owner:owner).save()
+ }
+}
+
+def eventOwner = Owner.findByName("Event");
+
+def charNames = ["Jedi Person","Old Guy","Lone Wolf"]
+def decksToBuild = ["Event","Imperial Agenda","Rebel Aid"]
+def buildDecks = ["Event":null,"Imperial Agenda":null,"Rebel Aid":null]
+decksToBuild.each{
+ 
+ def event = Owner.findByName(it)
+ def eventCards = Card.findAllByOwner(event)
+ def deck = new Deck(name:"$it Deck").save(flush:true)
+ deck.cards = eventCards
+ buildDecks["$it"] = deck
+}
+
+
+def campaign = new Campaign(name:"placeholder",eventDeck:buildDecks["Event"],imperialDeck:buildDecks["Imperial Agenda"],rebelAid:buildDecks["Rebel Aid"]).save(flush:true)
+campaign.name = "Test Campaign $campaign.id"
+campaign.save(flush:true)
+charNames.each{
+	new Character(name:it,campaign:campaign).save()
+}
+
+
+
+println "Owners: ${Owner.list().size()}"
+Owner.list().each{
+ def count = 0
+ it.cards.each{i->count++}
+ 
+ println "Owner $it.name has $count Cards in it"
+}
+println "Cards: ${Card.list().size()}"
+println "Campaign: ${Campaign.list().size()}"
+Campaign.list().each{c ->
+ def count=0
+ def impCnt = 0
+ def rebelCnt = 0
+ c.eventDeck?.cards.each{i->count++}
+ c.imperialDeck?.cards.each{i->impCnt++}
+ c.rebelAid?.cards.each{i->rebelCnt++}
+ println "A campaign $c.name has $count Event Cards, $impCnt Imperial Cards, and $rebelCnt Rebel Cards"
+ 
+ println "With the following characters: "
+ c.characters.each{println it.name}
+ 
+} 
+
+
+"done"

@@ -1,0 +1,12 @@
+package raiv
+
+
+import grails.rest.*
+import grails.converters.*
+
+class ItemsController extends RestfulController {
+    static responseFormats = ['json', 'xml']
+    ItemsController() {
+        super(Items)
+    }
+}

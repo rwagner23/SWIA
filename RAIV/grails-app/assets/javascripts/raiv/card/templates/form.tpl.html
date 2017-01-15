@@ -1,0 +1,14 @@
+<fieldset class="form">
+  <div class="fieldcontain required">
+    <label for="owner">Owner
+      <span class="required-indicator">*</span>
+    </label>
+    <select required="" name="owner" id="owner" ng-model="vm.card.owner" ng-options="owner for owner in vm.ownerList track by owner.id"></select>
+  </div>
+  <div class="fieldcontain required">
+    <label for="name">Name
+      <span class="required-indicator">*</span>
+    </label>
+    <input required="" name="name" id="name" ng-model="vm.card.name" type="text" />
+  </div>
+</fieldset>

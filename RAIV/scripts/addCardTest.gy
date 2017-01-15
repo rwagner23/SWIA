@@ -1,0 +1,20 @@
+import raiv.*
+ 
+ def deck = Deck.get(1)
+ 
+def c = Campaign.findByEventDeck(deck)
+ def location="imperialDeck"
+ c."${location}".cards.remove(card)
+	deck.cards.add(card)
+ c.save(flush:true) 
+
+
+def count=0
+ def impCnt = 0
+ def rebelCnt = 0
+ c.eventDeck?.cards.each{i->count++}
+ c.imperialDeck?.cards.each{i->impCnt++}
+ c.rebelAid?.cards.each{i->rebelCnt++}
+ println "A campaign $c.name has $count Event Cards, $impCnt Imperial Cards, and $rebelCnt Rebel Cards"
+
+"done"

@@ -1,0 +1,27 @@
+import raiv.*
+import org.apache.commons.io.FilenameUtils;
+println "Owners: ${Owner.list().size()}"
+Owner.list().each{
+ def count = 0
+ it.cards.each{i->count++}
+ 
+ println "Owner $it.name has $count Cards in it"
+}
+println "Cards: ${Card.list().size()}"
+println "Campaign: ${Campaign.list().size()}"
+Campaign.list().each{c ->
+ def count=0
+ def impCnt = 0
+ def rebelCnt = 0
+ c.eventDeck?.cards.each{i->count++}
+ c.imperialDeck?.cards.each{i->impCnt++}
+ c.rebelAid?.cards.each{i->rebelCnt++}
+ println "A campaign $c.name has $count Event Cards, $impCnt Imperial Cards, and $rebelCnt Rebel Cards"
+ 
+ println "With the following characters: "
+ c.characters.each{println it.name}
+ 
+} 
+
+
+"done"

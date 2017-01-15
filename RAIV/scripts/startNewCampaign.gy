@@ -1,0 +1,25 @@
+import raiv.*
+import org.apache.commons.io.FilenameUtils;
+
+def charNames = ["Jedi Person","Old Guy","Lone Wolf"]
+def decksToBuild = ["Event","Imperial Agenda","Rebel Aid"]
+def buildDecks = ["Event":null,"Imperial Agenda":null,"Rebel Aid":null]
+decksToBuild.each{
+ 
+ def event = Owner.findByName(it)
+ def eventCards = Card.findAllByOwner(event)
+ def deck = new Deck(name:"$it Deck").save(flush:true)
+ deck.cards = eventCards
+ buildDecks["$it"] = deck
+}
+
+
+def campaign = new Campaign(name:"placeholder",eventDeck:buildDecks["Event"],imperialDeck:buildDecks["Imperial Agenda"],rebelAid:buildDecks["Rebel Aid"]).save(flush:true)
+campaign.name = "Test Campaign $campaign.id"
+campaign.save(flush:true)
+charNames.each{
+	new Character(name:it,campaign:campaign).save()
+}
+campaign.eventDeck.cards.each{println it.name}
+
+"done"

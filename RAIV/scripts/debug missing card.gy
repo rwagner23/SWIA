@@ -1,0 +1,5 @@
+import raiv.*
+ 
+def owner = Owner.findByName("Imperial Agenda")
+ 
+owner.cards.sort{it.name}.each{println it.name}

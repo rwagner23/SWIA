@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.craigburke</groupId>
+  <artifactId>js-closure-wrap-asset-pipeline</artifactId>
+  <version>1.2.0</version>
+  <dependencies>
+    <dependency>
+      <groupId>org.codehaus.groovy</groupId>
+      <artifactId>groovy-all</artifactId>
+      <version>2.1.9</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.bertramlabs.plugins</groupId>
+      <artifactId>asset-pipeline-core</artifactId>
+      <version>2.3.7</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+  <name>js-closure-wrap-asset-pipeline</name>
+  <description>JS closure wrapper extension for the Asset Pipeline Library.</description>
+  <url>https://github.com/craigburke/js-closure-wrap-asset-pipeline</url>
+  <scm>
+    <url>https://github.com/craigburke/js-closure-wrap-asset-pipeline</url>
+    <connection>scm:https://github.com/craigburke/js-closure-wrap-asset-pipeline.git</connection>
+    <developerConnection>scm:https://github.com/craigburke/js-closure-wrap-asset-pipeline.git</developerConnection>
+  </scm>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/license/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>craigburke</id>
+      <name>Craig Burke</name>
+      <email>craig@craigburke.com</email>
+    </developer>
+  </developers>
+</project>

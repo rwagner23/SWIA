@@ -1,0 +1,36 @@
+<div class="nav" role="navigation">
+    <ul>
+        <li><a ui-sref="index" class="home">Home</a></li>
+        <li><a class="list" ui-sref="card.list" class="list">Card List</a></li>
+        <li><a class="create" ui-sref="card.create" class="create">New Card</a></li>
+    </ul>
+</div>
+<div id="show-part" class="content scaffold-show" role="main">
+    <h1>Show Card</h1>
+    <ol class="property-list card">
+  <li class="fieldcontain">
+    <span id="owner-label" class="property-label">Owner</span>
+    <div class="property-value" aria-labelledby="owner-label">
+      <a ui-sref="owner.show({id: vm.card.owner.id})">{{vm.card.owner.name}}</a>
+    </div>
+  </li>
+  
+  <li class="fieldcontain">
+  	<div class="card-value" aria-labelledby="owner-label">
+  	<img ng-src="/assets/cards/{{vm.card.owner.name}}/{{vm.card.name}}.jpg"  width="219" height="330" alt="{{vm.card.name}}" />
+	</div>
+  </li>
+  <li class="fieldcontain">
+    <span id="name-label" class="property-label">Name</span>
+    <div class="property-value" aria-labelledby="name-label">
+      <span>{{vm.card.name}}</span>
+    </div>
+  </li>
+</ol>
+    <form ng-submit="vm.delete()">
+        <fieldset class="buttons">
+            <a class="edit" ui-sref="card.edit({id: vm.card.id})">Edit</a>
+            <input class="delete" type="submit" value="Delete" onclick="return confirm('Are you sure?');" />
+        </fieldset>
+    </form>
+</div>

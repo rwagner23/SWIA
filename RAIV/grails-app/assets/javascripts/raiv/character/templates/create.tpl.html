@@ -1,0 +1,21 @@
+<div class="nav" role="navigation">
+    <ul>
+        <li><a ui-sref="index" class="home">Home</a></li>
+        <li><a ui-sref="character.list" class="list">Character List</a></li>
+    </ul>
+</div>
+<div id="create-character" class="content scaffold-create" role="main">
+    <h1>Create Character</h1>
+    <ul class="errors" role="alert" ng-if="vm.errors">
+        <li ng-repeat="error in vm.errors">{{error.message}}</li>
+    </ul>
+
+    <form name="saveCharacter" ng-submit="vm.saveCharacter()">
+        <fieldset class="form">
+            <ng-include src="'/raiv/character/form.html'"></ng-include>
+        </fieldset>
+        <fieldset class="buttons">
+            <input type="submit" name="create" class="save" value="Create" />
+        </fieldset>
+    </form>
+</div>

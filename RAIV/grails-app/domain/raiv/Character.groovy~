@@ -1,0 +1,9 @@
+package raiv
+
+
+import grails.rest.*
+
+@Resource(readOnly = false, formats = ['json', 'xml'])
+class Character {
+
+}
